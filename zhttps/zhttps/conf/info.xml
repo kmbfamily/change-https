@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<addon version="0.2">
+    <title xml:lang="ko">https 변환 애드온</title>
+    <description xml:lang="ko">http접속시 https로 강제 리다이렉트 시킵니다.</description>
+    <version>1.0</version>
+    <date>2017-06-28</date>
+    <author email_address="webmaster@kmbfamily.net" link="http://www.kmbfamily.net">
+        <name>kmbfamily</name>
+    </author>
+	<extra_vars>
+	</extra_vars>
+</addon>
