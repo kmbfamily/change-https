@@ -14,6 +14,10 @@ https 변환 애드온은 상용 애드온 겸 교육적인 측면의 애드온 
 - ftp로 xe core가 설치된곳에 있는 addon폴더 안에 zhttps 폴더를 통째로 업로드 합니다.
 ## 개발자 ##
 - kmbfamily,주영,소현
+## 지원 ##
+ - 공식홈페이지 : http://www.kmbfamily.net
+ - 세부설명 및 안내 : http://www.kmbfamily.net/software/478
+ - 문의 : https://open.kakao.com/o/gOiNvsx
 ## 라이선스 ##
 Copyright by kmbfamily & 주영 & 소현 2014 All rights reserved http://www.kmbfamily.net
 
