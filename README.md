@@ -12,7 +12,7 @@ https 변환 애드온은 상용 애드온 겸 교육적인 측면의 애드온 
 - ./addons/zhttps
 ## 설치방법 ##
 - ftp로 xe core가 설치된곳에 있는 addon폴더 안에 zhttps 폴더를 통째로 업로드 합니다.
-## 개발자 ##
+## 개발 및 저작권자 ##
 - kmbfamily,주영,소현
 ## 지원 ##
  - 공식홈페이지 : http://www.kmbfamily.net
