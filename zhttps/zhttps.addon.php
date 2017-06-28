@@ -1,20 +1,25 @@
-<?php
+ï»¿<?php
 /*
-*ÀÌ ¼Ò½ºÄÚµå´Â ½ÇÁ¦ »ç¿ëÀ» À§ÇÑ »ó¿ë ¾Öµå¿Â °â ÇÁ·Î±×·¥ ±³À°À» À§ÇÑ °£´ÜÇÑ ¾Öµå¿Â ÀÔ´Ï´Ù.
-*¾Öµå¿Â Á¦ÀÛ ¹æ¹ýÀÌ ±Ã±ÝÇÏ½Å ºÐÀº ÀÌ ¾Öµå¿ÂÀ» ÅëÇØ ¸¹Àº µµ¿òÀÌ µÇ½Ã±â¸¦ ¹Ù¶ø´Ï´Ù.
-*°³¹ß ¹× ÀúÀÛ±ÇÀÚ : kmbfamily,ÁÖ¿µ,¼ÒÇö
-*Á¦ÀÛÀÚ È¨ÆäÀÌÁö ¹× »ó¼¼¼³¸í : http://www.kmbfamily.net/software/478
-*±êÇãºê : https://github.com/kmbfamily/change-https
-*¹®ÀÇ : webmaster@kmbfamily.net ¶Ç´Â https://open.kakao.com/o/gOiNvsx
+*ì´ ì†ŒìŠ¤ì½”ë“œëŠ” ì‹¤ì œ ì‚¬ìš©ì„ ìœ„í•œ ìƒìš© ì• ë“œì˜¨ ê²¸ í”„ë¡œê·¸ëž¨ êµìœ¡ì„ ìœ„í•œ ê°„ë‹¨í•œ ì• ë“œì˜¨ ìž…ë‹ˆë‹¤.
+*ì• ë“œì˜¨ ì œìž‘ ë°©ë²•ì´ ê¶ê¸ˆí•˜ì‹  ë¶„ì€ ì´ ì• ë“œì˜¨ì„ í†µí•´ ë§Žì€ ë„ì›€ì´ ë˜ì‹œê¸°ë¥¼ ë°”ëžë‹ˆë‹¤.
+*ê°œë°œ ë° ì €ìž‘ê¶Œìž : kmbfamily,ì£¼ì˜,ì†Œí˜„
+*ì œìž‘ìž í™ˆíŽ˜ì´ì§€ ë° ìƒì„¸ì„¤ëª… : http://www.kmbfamily.net/software/478
+*ê¹ƒí—ˆë¸Œ : https://github.com/kmbfamily/change-https
+*ë¬¸ì˜ : webmaster@kmbfamily.net ë˜ëŠ” https://open.kakao.com/o/gOiNvsx
 */
-	if(!defined('__XE__') || !defined('__ZBXE__')) exit();	//xe 1.4*~1.5* È£È¯¿ë,xe 1.6ºÎÅÍ´Â ¾ø¾îµµ »ó°ü¾ø´Â ±¸¹®ÀÔ´Ï´Ù.
-	if(!isset($_SERVER["HTTPS"])){				//¸¸ÀÏ https Á¢¼ÓÀÌ ¾Æ´Ò°æ¿ì
-	//isset´Â °ªÀÌ ÀÖÀ»¶§ true¸¦ ¹ÝÈ¯ÇÏ´Âµ¥ !isset´Â ¹Ý´ë·Î issert°¡ falseÀÏ¶§ Âü
-        $http_host = $addon_info->http_host;			//¼­¹ö http È£½ºÆ®°ª ¹Þ¾Æ¿Í¼­ º¯¼ö¿¡ ÀúÀå(¼­¹ö¿¡ ¼³Á¤µÈ µµ¸ÞÀÎ°ª)
-	$https_port = Context::get('_https_port');		//xe¼³Á¤¿¡ µî·ÏµÈ https Æ÷Æ®°ª ¹Þ¾Æ¿Í º¯¼ö¿¡ ÀúÀå!
-        if(isset($https_port)) $https_port = ':'.$https_port;	//¸¸¾à¿¡ https Æ÷Æ®¹øÈ£ °ªÀÌ ÀÖÀ»¶§ Æ÷Æ®¹øÈ£°ª ¼³Á¤ ¹× º¯¼öÀúÀå
-	$redirect = "https://".$https_host.$http_port.$_SERVER['REQUEST_URL'];	//µµ¸ÞÀÎ°ª+Æ÷Æ®¹øÈ£°ª+µÚ¿¡ ÀÀ´ä url ÇÕÄ¡±â
-	header("Location: $redirect");		//¸®´ÙÀÌ·ºÆ® ½ÇÇà
+	if(!defined('__XE__') || !defined('__ZBXE__')) exit();	//xe 1.4*~1.5* í˜¸í™˜ìš©,xe 1.6ë¶€í„°ëŠ” ì—†ì–´ë„ ìƒê´€ì—†ëŠ” êµ¬ë¬¸ìž…ë‹ˆë‹¤.
+	if( $called_position !== 'before_module_init' ) return; //xe ê°œë°œìž ì„¤ëª…ì„œ ì°¸ê³ 
+	if(!isset($_SERVER["HTTPS"])){				//ë§Œì¼ https ì ‘ì†ì´ ì•„ë‹ê²½ìš°
+	//issetëŠ” ê°’ì´ ìžˆì„ë•Œ trueë¥¼ ë°˜í™˜í•˜ëŠ”ë° !issetëŠ” ë°˜ëŒ€ë¡œ issertê°€ falseì¼ë•Œ ì°¸
+	$https_port = Context::get('_https_port');		//xeì„¤ì •ì— ë“±ë¡ëœ https í¬íŠ¸ê°’ ë°›ì•„ì™€ ë³€ìˆ˜ì— ì €ìž¥!
+        if(isset($https_port)) $https_port = ':'.$https_port;	//ë§Œì•½ì— https í¬íŠ¸ë²ˆí˜¸ ê°’ì´ ìžˆì„ë•Œ í¬íŠ¸ë²ˆí˜¸ê°’ ì„¤ì • ë° ë³€ìˆ˜ì €ìž¥
+	header("Location: https://".$_SERVER['HTTP_HOST'].$https_port.$_SERVER['REQUEST_URI']);		//urlë³€ìˆ˜ê°’ í•©ì³ì„œ ë¦¬ë‹¤ì´ë ‰íŠ¸ ì‹¤í–‰
+	/*
+	*ë³€ìˆ˜ ì„¤ëª…
+	$_SERVER['HTTP_HOST'] = http ì„œë²„ì— ì„¤ì •ëœ ë„ë©”ì¸ê°’
+	$https_port = í¬íŠ¸ê°’
+	$_SERVER['REQUEST_URI'] = ë„ë©”ì¸ / ë’¤ë¡œ ì˜¤ëŠ” ì‘ë‹µ urlê°’
+	*/
 	}
-	return;			//ÀÌ ¾Öµå¿Â ³¡(À¢¸¸ÇÑ ¾Öµå¿ÂÀÇ ³¡Àº returnÀ¸·Î)
+	return;			//ì´ ì• ë“œì˜¨ ë(ì›¬ë§Œí•œ ì• ë“œì˜¨ì˜ ëì€ returnìœ¼ë¡œ)
 ?>
